@@ -1,79 +1,15 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>¿In winaq？</title>
-  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
-  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-
-  <!-- Don't use this in production: -->
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-</head>
-
-<body>
-  <div id="root"></div>
-  <script type="text/babel">
-    const se = new Audio('Marimba.wav');
-    const App = () => {
-      const [verified, setVerified] = React.useState(false);
-      React.useEffect(() => {
-        grecaptcha.render('html_element', {
-          sitekey: '6LeIkCMeAAAAAOfzsuPuJ7IT8uBUhJBvuBgGk7KF',
-          callback: (response) => {
-            se.play();
-            setVerified(true);
-          }
-        });
-      }, []);
-      return (
-        <div>
-          {verified ? (
-            <section className="hero is-primary is-fullheight">
-              <div className="hero-body">
-                <div className="container has-text-centered">
-                  <p className="title">
-                    ¡At winaq!
-                  </p>
-                  <p className="subtitle">
-                    In kinkikotik rural che le at at winaq.
-                  </p>
-                </div>
-              </div>
-            </section>
-          ) : (
-            <section className="hero is-fullheight">
-              <div className="hero-body">
-                <div className="container has-text-centered">
-<h1 style="text-align: center;"><strong>自分はロボットではないかと不安な方へ</strong></h1>
-<h3 style="text-align: center;"><strong>下のチェックボックスをクリックして確かめてみましょう。</strong></h3>
-                  <div style={{
-                    marginRight: 'auto',
-                    marginLeft: 'auto',
-                    textAlign: 'center',
-                    width: '300px',
-                    marginTop: '20px'
-                  }}>
-                    <div id="html_element"></div>
-                  </div>
-                </div>
-              </div>
-            </section>
-          )}
-        </div>
-      )
-    }
-    const onloadCallback = () => {
-      ReactDOM.render(
-        <App />,
-        document.getElementById('root')
-      );
-    };
-  </script>
-  <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>
-  </script>
-
-</body>
-
+  <head>
+    <title>¿In winaq？</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  </head>
+  <body>
+    <form action="?" method="POST">
+      <div class="g-recaptcha" data-sitekey="6LeIkCMeAAAAAOfzsuPuJ7IT8uBUhJBvuBgGk7KF"></div>
+      <br/>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
 </html>
+
